@@ -677,9 +677,6 @@ func accountImport(ctx *cli.Context) {
 	utils.CheckLegalese(ctx.GlobalString(utils.DataDirFlag.Name))
 
 	keyfile := ctx.Args().First()
-	if len(keyfile) == 0 {
-		utils.Fatalf("keyfile must be given as argument")
-	}
 	am := utils.MakeAccountManager(ctx)
 	passphrase := getPassPhrase(ctx, "Your new account is locked with a password. Please give a password. Do not forget this password.", true, 0)
 	acct, err := am.Import(keyfile, passphrase)
