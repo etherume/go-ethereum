@@ -657,9 +657,7 @@ func importWallet(ctx *cli.Context) {
 	utils.CheckLegalese(ctx.GlobalString(utils.DataDirFlag.Name))
 
 	keyfile := ctx.Args().First()
-	if len(keyfile) == 0 {
-		utils.Fatalf("keyfile must be given as argument")
-	}
+
 	keyJson, err := ioutil.ReadFile(keyfile)
 	if err != nil {
 		utils.Fatalf("Could not read wallet file: %v", err)
